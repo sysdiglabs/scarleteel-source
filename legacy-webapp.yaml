@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    labels:
+        app: legacy-webapp
+    name: legacy-webapp
+    namespace: legacy-webapp
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: legacy-webapp
+    template:
+        metadata:
+            creationTimestamp: null
+            labels:
+                app: legacy-webapp
+        spec:
+            containers:
+                - image: sysdigtraining/erp:legacy-1.9
+                  imagePullPolicy: IfNotPresent
+                  name: legacy-webapp
+                  ports:
+                    - containerPort: 8080
+                      protocol: TCP
+            dnsPolicy: ClusterFirst
+            restartPolicy: Always
+            terminationGracePeriodSeconds: 30
