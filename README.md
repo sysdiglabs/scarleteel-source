@@ -1,2 +1,2 @@
 # scarleteel-source
-Scarleteel source
+Example YAML files for the ScarletEel exercise
